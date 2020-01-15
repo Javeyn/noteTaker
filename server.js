@@ -15,6 +15,13 @@ app.use(express.urlencoded({
 app.use(express.static("public"))
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+  })
+  app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
+  })
+
 app.listen(PORT, function () {
     console.log("Now Serving you on localhost:" + PORT);
   })
